@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #030303;
+  color: #e4e4e7;
+}
+
+/* Scrollbar Personalizado Ultra-Fino */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #050507;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f293d;
+  border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+/* Efecto Ultra Glassmorphism */
+.glass-effect {
+  background: rgba(5, 5, 8, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Animación y Glow Efecto para Tarjetas */
+.product-card {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.4s ease, 
+              box-shadow 0.4s ease,
+              background-color 0.4s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  background-color: #0e0e13;
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.15),
+              inset 0 0 15px rgba(59, 130, 246, 0.05);
+}
+
+/* Micro-interacción en Botón de Compra Rápida */
+.btn-quick-add {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-quick-add:hover {
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.6);
+}
+
+/* Asegurar scroll fluido en contenedores internos */
+#lista-carrito::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Animación de entrada para los productos */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
