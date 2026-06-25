@@ -1,275 +1,186 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="notranslate scroll-smooth" translate="no">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oddyseum Store | Recargas Oficiales de Videojuegos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Oddyseum Network | Servidor Profesional & Tienda</title>
+    <meta name="description" content="Únete a Oddyseum Network y explora nuestra tienda oficial. Infraestructura optimizada y crossplay activo.">
 
-  <!-- Fuentes Tipográficas Premium -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
 
-  <!-- Framework Tailwind e Inyección de Variables Corporativas -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
-          colors: {
-            brand: {
-              dark: '#030303',
-              card: '#0a0a0f',
-              border: '#16161f',
-              accent: '#3b82f6',
-              accentGlow: 'rgba(59, 130, 246, 0.12)'
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;500;700;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                        cinzel: ['Cinzel', 'serif'],
+                    },
+                    colors: {
+                        primary: { 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7' },
+                        gold: { 300: '#fde047', 400: '#facc15', 500: '#eab308', 600: '#ca8a04' },
+                        brand: {
+                            void: '#06070C',
+                            card: '#121420',
+                            border: '#1C1E2E',
+                            surface: '#1A1D2D',
+                            neonCyan: '#00F2FE'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
             }
-          }
         }
-      }
-    }
-  </script>
-
-  <!-- Iconografía Vectorial Phosphor Icons -->
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  <link href="style.css" rel="stylesheet" />
-  <script defer src="main.js"></script>
+    </script>
 </head>
-<body class="bg-brand-dark text-gray-300 font-sans antialiased selection:bg-brand-accent selection:text-white overflow-x-hidden">
 
-  <!-- Capas de Iluminación Ambiental Neon de Fondo -->
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] h-[500px] bg-gradient-to-b from-brand-accent/15 to-transparent blur-[140px] rounded-full pointer-events-none z-0"></div>
-  <div class="fixed bottom-10 -left-20 w-[350px] h-[350px] bg-cyan-500/5 blur-[120px] rounded-full pointer-events-none z-0"></div>
+<body class="antialiased relative selection:bg-brand-neonCyan selection:text-white bg-brand-void text-gray-200 overflow-x-hidden">
 
-  <!-- Barra de Navegación Profesional Estilo Sticky Glass -->
-  <header class="sticky top-0 z-40 glass-effect border-b border-white/[0.05] backdrop-blur-xl">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
-      
-      <!-- Logotipo e Identidad de Marca -->
-      <div class="flex items-center gap-3 cursor-pointer group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-accent to-blue-600 flex items-center justify-center shadow-lg shadow-brand-accent/20 group-hover:scale-105 transition-transform">
-          <i class="ph-fill ph-game-controller text-xl text-white"></i>
+    <!-- Navbar Estática -->
+    <nav class="fixed top-0 w-full z-50 aero-glass border-b border-brand-border px-6 py-4 flex justify-between items-center">
+        <div class="font-heading font-black text-xl text-white tracking-wider flex items-center gap-2">
+            <i class="ph-fill ph-planet text-brand-neonCyan text-2xl"></i> ODDYSEUM
         </div>
-        <span class="text-lg font-extrabold text-white tracking-tight">Oddyseum <span class="font-normal text-gray-400 text-sm">Store</span></span>
-      </div>
-      
-      <!-- Menú de Enlaces Estilizado -->
-      <nav class="hidden md:flex gap-8 font-semibold text-xs uppercase tracking-widest">
-        <a href="#" class="text-white hover:text-brand-accent transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-brand-accent">Inicio</a>
-        <a href="#catalogo" class="text-gray-400 hover:text-white transition-colors">Catálogo</a>
-        <a href="#como-funciona" class="text-gray-400 hover:text-white transition-colors">¿Cómo comprar?</a>
-      </nav>
-
-      <!-- Panel de Acciones Rápidas -->
-      <div class="flex items-center gap-3">
-        <button id="btn-carrito" class="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider bg-white/[0.02] hover:bg-brand-accent/10 border border-white/10 hover:border-brand-accent/30 px-4 py-2.5 rounded-xl transition-all text-white group">
-          <i class="ph ph-shopping-cart-simple text-base text-brand-accent group-hover:scale-110 transition-transform"></i>
-          <span class="hidden sm:inline">Pedido</span>
-          <span id="cart-count" class="bg-brand-accent text-white text-[10px] px-1.5 py-0.5 rounded font-black min-w-[18px] text-center">0</span>
+        <button id="btn-carrito" class="relative bg-brand-surface border border-brand-border p-2.5 rounded-xl hover:border-brand-neonCyan transition-all group">
+            <i class="ph ph-shopping-cart text-xl text-white group-hover:text-brand-neonCyan"></i>
+            <span id="cart-count" class="absolute -top-2 -right-2 bg-brand-neonCyan text-brand-void text-[10px] font-black w-5 h-5 flex items-center justify-center rounded-full shadow-lg">0</span>
         </button>
-      </div>
+    </nav>
+
+    <!-- Fondos Globales -->
+    <div class="fixed inset-0 z-0 pointer-events-none bg-grid-pattern"></div>
+    <div class="glow-sphere sphere-top"></div>
+    <div class="glow-sphere sphere-bottom"></div>
+
+    <main class="max-w-7xl mx-auto px-5 pt-32 pb-20 relative z-10">
+        
+        <!-- Hero Section del Servidor -->
+        <header class="text-center mb-24 flex flex-col items-center animate-float" style="animation-duration: 8s;">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-500/30 bg-primary-500/10 mb-8 backdrop-blur-md">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                </span>
+                <span class="text-[10px] font-bold tracking-[0.2em] text-primary-400 uppercase">Temporada 1 Oficial Activa</span>
+            </div>
+
+            <h1 class="font-heading text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-[1] mb-6 tracking-tighter drop-shadow-2xl">
+                ODDYSEUM <br> <span class="text-gradient-primary">NETWORK</span>
+            </h1>
+
+            <p class="text-base md:text-lg text-zinc-400 font-medium max-w-3xl mx-auto leading-relaxed mb-10">
+                Construido por jugadores, para jugadores. Experimenta modalidades de última generación con una infraestructura optimizada.
+            </p>
+
+            <div class="flex flex-col md:flex-row justify-center gap-4 mb-12 w-full max-w-2xl mx-auto">
+                <div class="glass-panel px-6 py-4 rounded-2xl flex-1 flex items-center justify-between group hover:border-primary-500/30 cursor-pointer" onclick="copyIP()">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-primary-500/10 flex items-center justify-center group-hover:bg-primary-500/20 transition-colors">
+                            <i class="ph-fill ph-users text-2xl text-primary-500"></i>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-[10px] uppercase font-bold text-zinc-500 tracking-widest">En Línea Ahora</p>
+                            <p class="text-xl font-black text-white" id="player-count"><i class="ph-bold ph-spinner animate-spin inline-block"></i></p>
+                        </div>
+                    </div>
+                    <i class="ph-bold ph-copy text-zinc-600 group-hover:text-primary-500 transition-colors"></i>
+                </div>
+            </div>
+            
+            <a href="#tienda" class="animate-bounce mt-4 p-3 bg-brand-surface rounded-full border border-brand-border hover:text-brand-neonCyan transition-colors">
+                <i class="ph-bold ph-arrow-down text-xl"></i>
+            </a>
+        </header>
+
+        <!-- Tienda Integrada -->
+        <section id="tienda" class="pt-10 scroll-mt-24">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-4xl font-bold text-white mb-3">Catálogo Oficial</h2>
+                <p class="text-zinc-400 text-sm max-w-xl mx-auto">Adquiere mejoras, rangos y monedas. Financia la infraestructura y obtén ventajas exclusivas en el servidor.</p>
+            </div>
+            <!-- Grid Dinámico inyectado por JS -->
+            <div id="grid-productos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+        </section>
+
+    </main>
+
+    <!-- Footer & Legalidad -->
+    <footer class="border-t border-brand-border bg-brand-void/80 backdrop-blur-md relative z-10 mt-20 py-10">
+        <div class="max-w-7xl mx-auto px-5 text-center flex flex-col items-center">
+            <h3 class="font-heading font-black text-xl text-white tracking-wider mb-4 flex items-center gap-2">
+                <i class="ph-fill ph-planet text-brand-neonCyan"></i> ODDYSEUM
+            </h3>
+            <p class="text-xs text-zinc-500 max-w-md mx-auto mb-6">Oddyseum Network no está afiliado a Mojang AB ni Microsoft. Todos los pagos son donaciones para mantener la infraestructura.</p>
+            <div class="flex gap-6 text-sm font-medium text-zinc-400">
+                <a href="#" id="btn-terminos" class="hover:text-brand-neonCyan transition-colors">Términos de Servicio</a>
+                <a href="#" id="btn-privacidad" class="hover:text-brand-neonCyan transition-colors">Política de Privacidad</a>
+            </div>
+            <p class="text-[10px] text-zinc-600 mt-8 uppercase tracking-widest">&copy; 2026 Oddyseum Network. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modales -->
+
+    <!-- Modal Carrito Lateral -->
+    <div id="modal-carrito" class="fixed inset-0 z-[100] hidden justify-end bg-black/60 backdrop-blur-sm transition-all duration-300">
+        <div class="w-full max-w-md bg-brand-void h-full border-l border-brand-border flex flex-col shadow-2xl animate-slide-left">
+            <div class="p-6 border-b border-brand-border flex justify-between items-center bg-brand-surface/50">
+                <h3 class="text-lg font-heading font-black text-white flex items-center gap-2">
+                    <i class="ph-fill ph-shopping-bag text-brand-neonCyan text-xl"></i> Tu Compra
+                </h3>
+                <button id="close-cart" class="text-zinc-500 hover:text-white bg-brand-surface p-2 rounded-lg transition-colors border border-brand-border">
+                    <i class="ph-bold ph-x"></i>
+                </button>
+            </div>
+            
+            <div id="lista-carrito" class="flex-grow overflow-y-auto p-6 space-y-4 custom-scrollbar">
+                <!-- Items inyectados por JS -->
+            </div>
+
+            <div class="p-6 border-t border-brand-border bg-brand-surface/30">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-sm font-medium text-zinc-400">Total a pagar</span>
+                    <span id="cart-total" class="text-2xl font-black text-white">$0.00</span>
+                </div>
+                <div class="mb-4">
+                    <label class="text-[10px] uppercase font-bold text-zinc-500 tracking-widest block mb-2">Tu ID de Jugador / Nickname <span class="text-red-400">*</span></label>
+                    <input type="text" id="player-id" placeholder="Ej: Notch_2026" class="w-full bg-brand-void border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-neonCyan focus:ring-1 focus:ring-brand-neonCyan transition-all placeholder:text-zinc-600">
+                </div>
+                <button id="btn-checkout" class="w-full bg-brand-neonCyan hover:bg-[#00d4df] text-brand-void font-black uppercase tracking-widest text-sm py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(0,242,254,0.3)] hover:shadow-[0_0_30px_rgba(0,242,254,0.5)] flex justify-center items-center gap-2">
+                    <i class="ph-fill ph-whatsapp-logo text-lg"></i> Procesar vía WhatsApp
+                </button>
+            </div>
+        </div>
     </div>
-  </header>
 
-  <main class="relative z-10">
-    
-    <!-- Sección de Héroe Principal con Estilo Minimalista de Alto Impacto -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 text-center">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-accent/[0.08] border border-brand-accent/20 text-brand-accent text-[10px] font-black tracking-widest uppercase mb-6">
-        <i class="ph-fill ph-shield-check text-sm text-blue-400"></i>
-        Distribuidor de Terceros Autorizado
-      </div>
-      
-      <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-6 leading-[1.15]">
-        Recargas directas instantáneas <br>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-cyan-400 to-indigo-400">
-          usando únicamente tu ID.
-        </span>
-      </h1>
-      
-      <p class="text-xs sm:text-sm md:text-base text-gray-400 max-w-xl mx-auto mb-10 leading-relaxed">
-        Adquiere diamantes, monedas y pases de batalla de forma 100% legal. Olvídate de compartir contraseñas o arriesgar tus cuentas de juego.
-      </p>
-
-      <!-- Ventajas Competitivas -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left max-w-3xl mx-auto bg-brand-card/60 border border-brand-border p-4 rounded-2xl backdrop-blur-md">
-        <div class="flex items-center gap-3 p-2">
-          <div class="w-8 h-8 rounded-lg bg-yellow-500/10 flex items-center justify-center shrink-0"><i class="ph-fill ph-lightning text-yellow-500 text-sm"></i></div>
-          <div>
-            <h5 class="text-white text-xs font-bold">Entrega Inmediata</h5>
-            <p class="text-[11px] text-gray-500">Procesado en pocos minutos</p>
-          </div>
+    <!-- Toast Notification IP -->
+    <div id="toast-notification" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 translate-y-24 opacity-0 transition-all duration-300 z-50 bg-brand-surface border border-primary-500/50 text-white px-6 py-4 rounded-2xl flex items-center gap-4 shadow-[0_10px_40px_rgba(14,165,233,0.3)] pointer-events-none backdrop-blur-xl">
+        <div class="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center shrink-0">
+            <i class="ph-fill ph-check-circle text-primary-400 text-2xl"></i>
         </div>
-        <div class="flex items-center gap-3 p-2 border-t sm:border-t-0 sm:border-x border-white/[0.05]">
-          <div class="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center shrink-0"><i class="ph-fill ph-lock text-green-500 text-sm"></i></div>
-          <div>
-            <h5 class="text-white text-xs font-bold">Máxima Seguridad</h5>
-            <p class="text-[11px] text-gray-500">Transacciones protegidas</p>
-          </div>
-        </div>
-        <div class="flex items-center gap-3 p-2 border-t sm:border-t-0 border-white/[0.05]">
-          <div class="w-8 h-8 rounded-lg bg-brand-accent/10 flex items-center justify-center shrink-0"><i class="ph-fill ph-headset text-brand-accent text-sm"></i></div>
-          <div>
-            <h5 class="text-white text-xs font-bold">Soporte Humano</h5>
-            <p class="text-[11px] text-gray-500">Canal directo por WhatsApp</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sección Interactiva: Guía de Pasos de Compra -->
-    <section id="como-funciona" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-y border-white/[0.04] bg-brand-card/20 backdrop-blur-sm">
-      <div class="text-center mb-8">
-        <h3 class="text-xl font-extrabold text-white tracking-tight">¿Cómo realizar tu recarga?</h3>
-        <p class="text-xs text-gray-500 mt-1">Un flujo transparente desarrollado para la comodidad del jugador.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="flex gap-3.5 items-start p-4 rounded-xl bg-white/[0.01] border border-white/[0.04]">
-          <div class="w-8 h-8 rounded-lg bg-brand-accent/10 flex items-center justify-center text-brand-accent font-black text-xs shrink-0">01</div>
-          <div>
-            <h4 class="text-white text-xs font-bold mb-1">Selecciona el Paquete</h4>
-            <p class="text-xs text-gray-400 leading-relaxed">Escoge los artículos correspondientes al juego de tu preferencia de nuestro escaparate.</p>
-          </div>
-        </div>
-        <div class="flex gap-3.5 items-start p-4 rounded-xl bg-white/[0.01] border border-white/[0.04]">
-          <div class="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 font-black text-xs shrink-0">02</div>
-          <div>
-            <h4 class="text-white text-xs font-bold mb-1">Coloca tu ID del Juego</h4>
-            <p class="text-xs text-gray-400 leading-relaxed">Introduce el identificador público numérico del perfil en el campo del checkout del pedido.</p>
-          </div>
-        </div>
-        <div class="flex gap-3.5 items-start p-4 rounded-xl bg-white/[0.01] border border-white/[0.04]">
-          <div class="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400 font-black text-xs shrink-0">03</div>
-          <div>
-            <h4 class="text-white text-xs font-bold mb-1">Despacho Automatizado</h4>
-            <p class="text-xs text-gray-400 leading-relaxed">Procesa la orden vía WhatsApp para coordinar tu método de pago preferido en moneda local o digital.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Catálogo de Productos con Grid Controlado (2 Columnas Móvil / 4 Columnas Computadora) -->
-    <section id="catalogo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-      <div class="mb-8">
-        <h2 class="text-2xl font-black text-white tracking-tight">Catálogo Comercial</h2>
-        <p class="text-xs text-gray-500 mt-1">Lotes de créditos oficiales listos para ser indexados a tu perfil.</p>
-      </div>
-      
-      <!-- Cuadrícula Fluida Regulada por Dispositivo -->
-      <div id="grid-productos" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6"></div>
-    </section>
-  </main>
-
-  <!-- Modal Desplegable Lateral del Carrito de Compras -->
-  <div id="modal-carrito" class="fixed inset-0 bg-black/85 z-50 backdrop-blur-md hidden justify-end transition-all duration-300">
-    <div class="w-full max-w-md bg-brand-card border-l border-brand-border h-full flex flex-col p-5 sm:p-6 shadow-2xl relative">
-      <div class="flex justify-between items-center pb-4 border-b border-white/[0.08]">
-        <h3 class="text-lg font-bold text-white flex items-center gap-2">
-          <i class="ph ph-shopping-bag text-brand-accent"></i> Tu Pedido Activo
-        </h3>
-        <button id="close-cart" class="text-gray-400 hover:text-white p-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] transition-colors">
-          <i class="ph ph-x text-lg"></i>
-        </button>
-      </div>
-
-      <!-- Zona de Listado con Scroll Interno Inyectado -->
-      <div id="lista-carrito" class="flex-grow overflow-y-auto py-4 space-y-3"></div>
-
-      <!-- Formulario de Validación e Inputs -->
-      <div class="border-t border-white/[0.08] pt-4 space-y-4">
         <div>
-          <label for="player-id" class="block text-[10px] font-black uppercase tracking-wider text-gray-400 mb-2">ID del Jugador o Cuenta *</label>
-          <input type="text" id="player-id" placeholder="Ej: 489201948 (Especifica juego si son varios)" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-xs sm:text-sm text-white placeholder-gray-600 focus:outline-none focus:border-brand-accent transition-colors">
+            <p class="text-sm font-black tracking-wide text-white">¡IP Copiada al portapapeles!</p>
+            <p class="text-xs text-zinc-400 mt-0.5">Te esperamos en play.oddyseum.net</p>
         </div>
-        
-        <div class="flex justify-between items-center text-xs font-semibold text-gray-400 pt-1">
-          <span>Total de la Orden:</span>
-          <span id="cart-total" class="text-xl font-black text-white">$0.00</span>
-        </div>
-
-        <button id="btn-checkout" class="w-full bg-brand-accent hover:bg-blue-600 text-white font-bold text-xs uppercase tracking-wider py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-accent/20">
-          <i class="ph-fill ph-whatsapp-logo text-base"></i> Procesar vía WhatsApp
-        </button>
-        <p class="text-[10px] text-gray-600 text-center leading-relaxed">Al canalizar el pedido declaras tener total conocimiento de que los IDs ingresados son los correctos.</p>
-      </div>
     </div>
-  </div>
 
-  <!-- MODAL: Términos de Servicio -->
-  <div id="modal-terminos" class="fixed inset-0 bg-black/90 z-50 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="w-full max-w-2xl bg-brand-card border border-brand-border max-h-[85vh] flex flex-col rounded-2xl overflow-hidden shadow-2xl">
-      <div class="p-5 border-b border-white/[0.08] flex justify-between items-center">
-        <h3 class="text-white font-extrabold text-base flex items-center gap-2"><i class="ph ph-file-text text-brand-accent"></i> Términos de Servicio</h3>
-        <button id="close-terminos" class="text-gray-400 hover:text-white p-1.5 rounded-lg bg-white/5"><i class="ph ph-x"></i></button>
-      </div>
-      <div class="p-5 overflow-y-auto text-xs text-gray-400 space-y-4 leading-relaxed">
-        <p class="text-white font-semibold">1. Distribución de Productos y Saldos</p>
-        <p>Oddyseum Store actúa exclusivamente como un canal de distribución comercial alternativo y de terceros. El usuario entiende que el saldo se asocia de forma directa e irreversible al identificador público proporcionado.</p>
-        <p class="text-white font-semibold">2. Responsabilidad sobre Datos Suministrados</p>
-        <p>Es responsabilidad indelegable del comprador verificar que el ID numérico y el juego seleccionado correspondan con exactitud a su cuenta. Una vez procesada la recarga en los servidores de la editora, no existen políticas de reversión de transacciones.</p>
-        <p class="text-white font-semibold">3. Tiempos de Despacho</p>
-        <p>La mayoría de los productos se despachan en intervalos que varían de 5 a 30 minutos una vez validada la acreditación de los fondos. En ventanas de mantenimiento técnico de las plataformas de los videojuegos correspondientes, los tiempos podrían extenderse hasta 24 horas.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL: Política de Privacidad -->
-  <div id="modal-privacidad" class="fixed inset-0 bg-black/90 z-50 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="w-full max-w-2xl bg-brand-card border border-brand-border max-h-[85vh] flex flex-col rounded-2xl overflow-hidden shadow-2xl">
-      <div class="p-5 border-b border-white/[0.08] flex justify-between items-center">
-        <h3 class="text-white font-extrabold text-base flex items-center gap-2"><i class="ph ph-shield-check text-brand-accent"></i> Política de Privacidad</h3>
-        <button id="close-privacidad" class="text-gray-400 hover:text-white p-1.5 rounded-lg bg-white/5"><i class="ph ph-x"></i></button>
-      </div>
-      <div class="p-5 overflow-y-auto text-xs text-gray-400 space-y-4 leading-relaxed">
-        <p class="text-white font-semibold">1. Datos Recopilados</p>
-        <p>Oddyseum Store no almacena contraseñas, tokens de redes sociales ni datos sensibles de tarjetas de crédito o credenciales de acceso. Los únicos datos procesados de manera temporal corresponden al ID del jugador para el enrutamiento de la recarga.</p>
-        <p class="text-white font-semibold">2. Uso e Integridad de la Información</p>
-        <p>La información recolectada se utiliza únicamente con el objetivo específico de cumplir con el contrato de compra y envío del saldo digital. Ningún tipo de dato es compartido, vendido o distribuido a redes publicitarias externas.</p>
-        <p class="text-white font-semibold">3. Persistencia en Memoria Local</p>
-        <p>El almacenamiento temporal del listado de compras se realiza de forma local en tu navegador mediante variables de `localStorage` para facilitar la experiencia de navegación del cliente.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Botón Flotante Permanente de WhatsApp para Asistencia Técnica Directa -->
-  <a href="https://wa.me/584220016488" target="_blank" class="fixed bottom-6 right-6 z-40 bg-[#25D366] text-white p-3.5 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center group" title="Soporte Directo">
-    <i class="ph-fill ph-whatsapp-logo text-2xl sm:text-3xl"></i>
-  </a>
-
-  <!-- Pie de Página Premium de Alta Fidelidad -->
-  <footer class="border-t border-white/[0.04] bg-[#060609] mt-20 relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      
-      <!-- Pasarelas de Liquidación Soportadas -->
-      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 pb-6 border-b border-white/[0.04] mb-6">
-        <span class="text-[10px] font-black text-gray-500 uppercase tracking-widest">Canales de Pago Soportados:</span>
-        <div class="flex flex-wrap gap-2.5 text-[11px] font-bold text-gray-400">
-          <span class="px-3 py-1.5 bg-white/[0.02] rounded-lg border border-white/[0.04] flex items-center gap-1.5"><i class="ph ph-bank text-yellow-500 text-sm"></i> Pago Móvil / Transferencia</span>
-          <span class="px-3 py-1.5 bg-white/[0.02] rounded-lg border border-white/[0.04] flex items-center gap-1.5"><i class="ph ph-currency-btc text-orange-400 text-sm"></i> Binance Pay (USDT)</span>
-          <span class="px-3 py-1.5 bg-white/[0.02] rounded-lg border border-white/[0.04] flex items-center gap-1.5"><i class="ph ph-paypal-logo text-blue-400 text-sm"></i> PayPal</span>
-        </div>
-      </div>
-
-      <!-- Enlaces Legales y Copyright -->
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <div class="flex items-center gap-2.5">
-          <i class="ph-fill ph-game-controller text-xl text-brand-accent"></i>
-          <span class="text-white font-extrabold text-sm">Oddyseum Store &copy; 2026</span>
-        </div>
-        
-        <div class="flex gap-6 text-xs text-gray-500 font-semibold">
-          <a href="#" id="btn-terminos" class="hover:text-white transition-colors">Términos de Servicio</a>
-          <a href="#" id="btn-privacidad" class="hover:text-white transition-colors">Políticas de Privacidad</a>
-        </div>
-      </div>
-      
-      <!-- Descargo de Responsabilidad Comercial Legal Requerido -->
-      <div class="text-[10px] text-gray-600 mt-6 text-center md:text-left leading-relaxed max-w-6xl">
-        Cláusula de Exención de Responsabilidad: Oddyseum Store es una plataforma de distribución independiente y de terceros para saldos comerciales de videojuegos. Todas las marcas registradas, logotipos, nombres de personajes y artes de videojuegos (Free Fire, Garena, Call of Duty, Activision, Blood Strike, NetEase, Minecraft, Mojang) son propiedad estricta de sus respectivos dueños y desarrolladores legítimos.
-      </div>
-    </div>
-  </footer>
-
+    <!-- Scripts -->
+    <script src="app.js"></script>
 </body>
 </html>

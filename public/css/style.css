@@ -1,80 +1,126 @@
+/* ==========================================================================
+   Estilos Globales de Alta Fidelidad - Oddyseum Store (2026)
+   ========================================================================== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-body {
-  background-color: #030303;
-  color: #e4e4e7;
+/* Patrón de fondo sutil para dar textura técnica */
+.bg-grid-pattern {
+  background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
-/* Scrollbar Personalizado Ultra-Fino */
+/* Scrollbar Avanzado Global */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #050507;
+  background: #06070C;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1f293d;
-  border-radius: 20px;
+  background: #1C1E2E;
+  border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6;
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  background: #00F2FE;
 }
 
-/* Efecto Ultra Glassmorphism */
-.glass-effect {
-  background: rgba(5, 5, 8, 0.65);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+/* Capas Blur de Ambiente Metálico (Refactorizado) */
+.glow-sphere {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+}
+.sphere-top {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 242, 254, 0.08) 0%, rgba(155, 81, 224, 0.03) 50%, transparent 100%);
+  filter: blur(100px);
+}
+.sphere-bottom {
+  bottom: -10%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(0, 242, 254, 0.05) 0%, transparent 70%);
+  filter: blur(120px);
 }
 
-/* Animación y Glow Efecto para Tarjetas */
-.product-card {
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
-              border-color 0.4s ease, 
-              box-shadow 0.4s ease,
-              background-color 0.4s ease;
+/* Cristal Aero Glassmorphism */
+.aero-glass {
+  background: rgba(6, 7, 12, 0.75);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+}
+.glass-panel {
+  background: rgba(26, 29, 45, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.product-card:hover {
+/* Degradados de Texto */
+.text-gradient-primary {
+  background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Tarjetas Premium de la Tienda */
+.premium-card {
+  background: #121420;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.premium-card:hover {
   transform: translateY(-6px);
-  background-color: #0e0e13;
-  border-color: rgba(59, 130, 246, 0.4);
-  box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.15),
-              inset 0 0 15px rgba(59, 130, 246, 0.05);
+  border-color: rgba(0, 242, 254, 0.35);
+  box-shadow: 0 22px 40px -15px rgba(0, 242, 254, 0.15),
+              inset 0 0 15px rgba(0, 242, 254, 0.02);
 }
 
-/* Micro-interacción en Botón de Compra Rápida */
-.btn-quick-add {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.btn-quick-add:hover {
-  box-shadow: 0 0 12px rgba(59, 130, 246, 0.6);
-}
-
-/* Asegurar scroll fluido en contenedores internos */
-#lista-carrito::-webkit-scrollbar {
+/* Micro-scroll interno del carrito lateral */
+.custom-scrollbar::-webkit-scrollbar {
   width: 4px;
 }
-
-/* Animación de entrada para los productos */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
 }
 
+/* ==========================================================================
+   Efectos y Animaciones Fluidas (Optimizadas para Rendimiento Móvil)
+   ========================================================================== */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  opacity: 0;
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+.animate-slide-left {
+  animation: slideLeft 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
