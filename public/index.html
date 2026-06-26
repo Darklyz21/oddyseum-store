@@ -3,184 +3,392 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Oddyseum Network | Servidor Profesional & Tienda</title>
-    <meta name="description" content="Únete a Oddyseum Network y explora nuestra tienda oficial. Infraestructura optimizada y crossplay activo.">
+    <title>Lyz Market | Tu Arsenal Gamer Premium</title>
 
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="stylesheet" href="styles.css">
 
+    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;500;700;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Poppins', 'sans-serif'],
-                        cinzel: ['Cinzel', 'serif'],
+                        sans: ['Poppins', 'sans-serif'],
                     },
                     colors: {
-                        primary: { 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7' },
-                        gold: { 300: '#fde047', 400: '#facc15', 500: '#eab308', 600: '#ca8a04' },
+                        base: {
+                            100: '#06060A',
+                            200: '#111119',
+                            300: '#1A1924',
+                            400: '#232232',
+                        },
                         brand: {
-                            void: '#06070C',
-                            card: '#121420',
-                            border: '#1C1E2E',
-                            surface: '#1A1D2D',
-                            neonCyan: '#00F2FE'
-                        }
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
+                            green: '#00F28E',
+                            purple: '#9B51E0',
+                            yellow: '#FFC107',
+                            cyan: '#00B4D8',
                         }
                     }
                 }
             }
         }
     </script>
+
+    <style>
+        body {
+            background-color: #06060A;
+            color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Ocultar scrollbar pero mantener funcionalidad */
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Utilidad para arrastrar (Drag to scroll) */
+        .drag-scroll {
+            cursor: grab;
+        }
+        .drag-scroll:active {
+            cursor: grabbing;
+        }
+
+        /* Cristal oscuro para header */
+        .glass-nav {
+            background: rgba(6, 6, 10, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Animaciones personalizadas */
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .hover-lift:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .glow-hover:hover {
+            box-shadow: 0 0 25px -5px var(--glow-color, rgba(0, 242, 142, 0.3));
+            border-color: var(--glow-color, rgba(0, 242, 142, 0.5));
+        }
+
+        /* Transiciones suaves para los pasos interactivos */
+        .step-icon, .step-text {
+            transition: all 0.5s ease;
+        }
+    </style>
 </head>
+<body class="min-h-screen flex flex-col pb-20 lg:pb-0 selection:bg-brand-green selection:text-black">
 
-<body class="antialiased relative selection:bg-brand-neonCyan selection:text-white bg-brand-void text-gray-200 overflow-x-hidden">
-
-    <!-- Navbar Estática -->
-    <nav class="fixed top-0 w-full z-50 aero-glass border-b border-brand-border px-6 py-4 flex justify-between items-center">
-        <div class="font-heading font-black text-xl text-white tracking-wider flex items-center gap-2">
-            <i class="ph-fill ph-planet text-brand-neonCyan text-2xl"></i> ODDYSEUM
+    <!-- Top Bar -->
+    <div class="bg-base-200 border-b border-base-300 px-4 py-1.5 flex justify-between items-center text-[10px] font-semibold text-gray-400 uppercase tracking-wider">
+        <span>LYZ MARKET PRO</span>
+        <div class="flex items-center gap-1 text-brand-green bg-brand-green/10 px-2 py-0.5 rounded-full border border-brand-green/20 cursor-pointer hover:bg-brand-green hover:text-black transition-colors">
+            <i class="ph ph-globe text-sm"></i> VES
         </div>
-        <button id="btn-carrito" class="relative bg-brand-surface border border-brand-border p-2.5 rounded-xl hover:border-brand-neonCyan transition-all group">
-            <i class="ph ph-shopping-cart text-xl text-white group-hover:text-brand-neonCyan"></i>
-            <span id="cart-count" class="absolute -top-2 -right-2 bg-brand-neonCyan text-brand-void text-[10px] font-black w-5 h-5 flex items-center justify-center rounded-full shadow-lg">0</span>
+    </div>
+
+    <!-- Navegación -->
+    <nav class="sticky top-0 z-50 glass-nav border-b border-base-300 px-4 py-3 flex justify-between items-center transition-all duration-300" id="navbar">
+        <button class="text-white hover:text-brand-green transition-transform hover:scale-110 active:scale-95">
+            <i class="ph ph-list text-2xl"></i>
+        </button>
+
+        <!-- Logo Lyz Market -->
+        <div class="text-2xl font-black italic tracking-tighter cursor-pointer hover:opacity-80 transition-opacity">
+            <span class="text-white">Lyz</span><span class="text-brand-green">Market</span>
+        </div>
+
+        <button class="bg-brand-green text-black font-bold text-sm px-5 py-2 rounded-full flex items-center gap-1.5 hover:bg-[#00d67e] hover:shadow-[0_0_15px_rgba(0,242,142,0.4)] transition-all active:scale-95">
+            <i class="ph-bold ph-lightning text-lg"></i> ENTRAR
         </button>
     </nav>
 
-    <!-- Fondos Globales -->
-    <div class="fixed inset-0 z-0 pointer-events-none bg-grid-pattern"></div>
-    <div class="glow-sphere sphere-top"></div>
-    <div class="glow-sphere sphere-bottom"></div>
+    <main class="max-w-[480px] mx-auto w-full lg:max-w-[1200px] flex-grow">
 
-    <main class="max-w-7xl mx-auto px-5 pt-32 pb-20 relative z-10">
-        
-        <!-- Hero Section del Servidor -->
-        <header class="text-center mb-24 flex flex-col items-center animate-float" style="animation-duration: 8s;">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-500/30 bg-primary-500/10 mb-8 backdrop-blur-md">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
-                </span>
-                <span class="text-[10px] font-bold tracking-[0.2em] text-primary-400 uppercase">Temporada 1 Oficial Activa</span>
-            </div>
-
-            <h1 class="font-heading text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-[1] mb-6 tracking-tighter drop-shadow-2xl">
-                ODDYSEUM <br> <span class="text-gradient-primary">NETWORK</span>
-            </h1>
-
-            <p class="text-base md:text-lg text-zinc-400 font-medium max-w-3xl mx-auto leading-relaxed mb-10">
-                Construido por jugadores, para jugadores. Experimenta modalidades de última generación con una infraestructura optimizada.
-            </p>
-
-            <div class="flex flex-col md:flex-row justify-center gap-4 mb-12 w-full max-w-2xl mx-auto">
-                <div class="glass-panel px-6 py-4 rounded-2xl flex-1 flex items-center justify-between group hover:border-primary-500/30 cursor-pointer" onclick="copyIP()">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-primary-500/10 flex items-center justify-center group-hover:bg-primary-500/20 transition-colors">
-                            <i class="ph-fill ph-users text-2xl text-primary-500"></i>
-                        </div>
-                        <div class="text-left">
-                            <p class="text-[10px] uppercase font-bold text-zinc-500 tracking-widest">En Línea Ahora</p>
-                            <p class="text-xl font-black text-white" id="player-count"><i class="ph-bold ph-spinner animate-spin inline-block"></i></p>
-                        </div>
-                    </div>
-                    <i class="ph-bold ph-copy text-zinc-600 group-hover:text-primary-500 transition-colors"></i>
+        <!-- Banner Promocional -->
+        <div class="p-4 mt-2">
+            <div class="w-full aspect-[21/9] lg:aspect-[21/6] bg-base-200 rounded-[28px] overflow-hidden relative border border-base-300 cursor-pointer group hover-lift" style="--glow-color: rgba(0,242,142,0.2);">
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop" alt="Banner" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent flex flex-col justify-center p-6 lg:p-10">
+                    <span class="text-brand-green font-bold text-[10px] lg:text-xs uppercase tracking-widest mb-1 italic transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">NUEVA TEMPORADA</span>
+                    <h2 class="text-2xl lg:text-4xl font-black italic text-white leading-tight transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">PASE DE<br>BATALLA</h2>
                 </div>
             </div>
-            
-            <a href="#tienda" class="animate-bounce mt-4 p-3 bg-brand-surface rounded-full border border-brand-border hover:text-brand-neonCyan transition-colors">
-                <i class="ph-bold ph-arrow-down text-xl"></i>
-            </a>
-        </header>
+        </div>
 
-        <!-- Tienda Integrada -->
-        <section id="tienda" class="pt-10 scroll-mt-24">
-            <div class="text-center mb-12">
-                <h2 class="font-heading text-4xl font-bold text-white mb-3">Catálogo Oficial</h2>
-                <p class="text-zinc-400 text-sm max-w-xl mx-auto">Adquiere mejoras, rangos y monedas. Financia la infraestructura y obtén ventajas exclusivas en el servidor.</p>
+        <!-- SECCIÓN: Loot Relámpago Dinámico -->
+        <section class="p-4 mt-2">
+            <div class="flex items-center gap-2 mb-4">
+                <div class="w-1.5 h-6 bg-brand-purple rounded-full shadow-[0_0_10px_rgba(155,81,224,0.5)]"></div>
+                <h2 class="text-xl font-bold text-white">Loot <span class="text-brand-purple">Relámpago <i class="ph-fill ph-lightning animate-pulse"></i></span></h2>
             </div>
-            <!-- Grid Dinámico inyectado por JS -->
-            <div id="grid-productos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+
+            <div class="bg-base-200 border border-brand-cyan/20 rounded-[28px] p-5 relative overflow-hidden group hover-lift glow-hover cursor-pointer" style="--glow-color: rgba(0,180,216,0.3);">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-cyan/10 blur-[40px] rounded-full group-hover:bg-brand-cyan/20 transition-colors duration-500"></div>
+                
+                <div class="flex gap-4 relative z-10">
+                    <div class="w-16 h-16 rounded-[18px] overflow-hidden relative flex-shrink-0 border border-base-300 group-hover:border-brand-cyan/50 transition-colors">
+                        <img src="https://images.unsplash.com/photo-1605901309584-818e25960b8f?q=80&w=150&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/50 flex items-center justify-center backdrop-blur-[2px]">
+                            <i class="ph-fill ph-lock-key text-brand-cyan text-xl group-hover:scale-125 transition-transform duration-300"></i>
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <h3 class="text-brand-cyan text-[10px] font-bold uppercase tracking-widest mb-0.5">BLOOD STRIKE</h3>
+                        <p class="text-white font-bold text-sm mb-1">100 + 5 Offert</p>
+                        <!-- Temporizador Vivo -->
+                        <div class="flex items-center gap-1.5 bg-brand-cyan/10 px-2 py-0.5 rounded-md text-brand-cyan text-xs font-bold w-fit border border-brand-cyan/20">
+                            <i class="ph-bold ph-clock animate-pulse"></i> 
+                            <span id="countdown">3D 00H 23M 58S</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5 flex items-end gap-3 relative z-10">
+                    <span class="text-gray-500 font-medium line-through text-sm">Bs. 657,36</span>
+                    <span class="text-brand-cyan font-black text-2xl group-hover:scale-105 transition-transform origin-left">Bs. 46,02</span>
+                    <span class="bg-brand-cyan border border-brand-cyan text-black text-[10px] font-black px-2 py-0.5 rounded-full mb-1 group-hover:shadow-[0_0_10px_rgba(0,180,216,0.5)] transition-all">-93%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: Juegos de Recarga -->
+        <section class="pt-6 pl-4 mb-4">
+            <div class="flex items-center gap-2 mb-4 pr-4">
+                <div class="w-1.5 h-6 bg-brand-yellow rounded-full shadow-[0_0_10px_rgba(255,193,7,0.5)]"></div>
+                <h2 class="text-xl font-bold text-white">Juegos de <span class="text-brand-yellow">Recarga</span></h2>
+            </div>
+
+            <!-- Contenedor Drag & Drop JS -->
+            <div class="flex gap-4 overflow-x-auto snap-x hide-scrollbar pb-4 pr-4 drag-scroll" id="slider-juegos">
+                
+                <!-- Card -->
+                <div class="min-w-[140px] w-[140px] bg-base-200 border border-base-300 rounded-[24px] p-2 flex flex-col snap-start hover-lift glow-hover" style="--glow-color: rgba(255,255,255,0.1);">
+                    <div class="w-full aspect-square rounded-[18px] overflow-hidden mb-3 relative">
+                        <img src="https://images.unsplash.com/photo-1605901309584-818e25960b8f?q=80&w=300&auto=format&fit=crop" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </div>
+                    <h3 class="text-white font-bold text-sm px-1.5 mb-1 leading-tight">Free fire</h3>
+                    <p class="text-gray-500 text-[9px] font-bold tracking-widest uppercase px-1.5 mt-auto pb-1">NORTE / SUR</p>
+                </div>
+
+                <!-- Card -->
+                <div class="min-w-[140px] w-[140px] bg-base-200 border border-base-300 rounded-[24px] p-2 flex flex-col snap-start hover-lift glow-hover" style="--glow-color: rgba(255,255,255,0.1);">
+                    <div class="w-full aspect-square rounded-[18px] overflow-hidden mb-3 relative">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=300&auto=format&fit=crop" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </div>
+                    <h3 class="text-white font-bold text-sm px-1.5 mb-1 leading-tight">Blood Strike</h3>
+                    <p class="text-gray-500 text-[9px] font-bold tracking-widest uppercase px-1.5 mt-auto pb-1">GLOBAL</p>
+                </div>
+
+                <!-- Card -->
+                <div class="min-w-[140px] w-[140px] bg-base-200 border border-base-300 rounded-[24px] p-2 flex flex-col snap-start hover-lift glow-hover" style="--glow-color: rgba(255,255,255,0.1);">
+                    <div class="w-full aspect-square rounded-[18px] overflow-hidden mb-3 relative">
+                        <img src="https://images.unsplash.com/photo-1600861194942-f883de0dfe96?q=80&w=300&auto=format&fit=crop" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </div>
+                    <h3 class="text-white font-bold text-sm px-1.5 mb-1 leading-tight">Mobile Legends</h3>
+                    <p class="text-gray-500 text-[9px] font-bold tracking-widest uppercase px-1.5 mt-auto pb-1">GLOBAL</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: Feature Animado 24/7 -->
+        <section class="pt-8 px-4 mb-12">
+            <div class="flex justify-center mb-6">
+                <span class="border border-brand-green text-brand-green text-xs font-bold px-4 py-1.5 rounded-full flex items-center gap-2 bg-brand-green/10 shadow-[0_0_15px_rgba(0,242,142,0.15)] animate-pulse">
+                    <i class="ph-fill ph-shield-check text-base"></i> GARANTÍA PREMIUM
+                </span>
+            </div>
+            
+            <h2 class="text-center text-3xl font-black italic text-white mb-4 uppercase">
+                ¿POR QUÉ ELEGIR<br>
+                <span class="text-4xl text-white">LYZ <span class="text-brand-green">MARKET</span> ?</span>
+            </h2>
+
+            <div class="bg-base-200 border border-base-300 rounded-[32px] p-6 lg:p-8 mt-8 shadow-xl relative overflow-hidden group hover:border-base-400 transition-colors">
+                <!-- Efecto de luz de fondo -->
+                <div class="absolute -top-20 -right-20 w-48 h-48 bg-brand-purple/10 blur-[50px] rounded-full"></div>
+
+                <div class="bg-brand-purple/10 text-brand-purple w-14 h-14 flex items-center justify-center rounded-[20px] mb-6 border border-brand-purple/20">
+                    <i class="ph-bold ph-clock text-2xl group-hover:rotate-180 transition-transform duration-700"></i>
+                </div>
+                
+                <h3 class="text-2xl font-black uppercase italic text-white mb-3">Sistema Automático<br>24/7</h3>
+                <p class="text-gray-400 text-sm mb-8 leading-relaxed">
+                    Tus recargas se procesan en milisegundos. Sin intermediarios, disponible a cualquier hora del día.
+                </p>
+
+                <!-- Animación interactiva de pasos (Controlada por JS) -->
+                <div class="bg-base-100 border border-base-300 rounded-[24px] p-5 relative overflow-hidden">
+                    <div class="absolute left-[33px] top-[36px] bottom-[36px] w-[2px] border-l-2 border-dashed border-base-400 z-0"></div>
+
+                    <!-- Paso 1 -->
+                    <div class="flex items-center gap-4 mb-6 relative z-10" id="step-1">
+                        <div class="step-icon w-7 h-7 rounded-full bg-base-300 border border-base-400 flex items-center justify-center flex-shrink-0 text-gray-500">
+                            <i class="ph-bold ph-check text-sm"></i>
+                        </div>
+                        <div class="flex-grow step-text opacity-50">
+                            <h4 class="text-white font-bold text-sm">Pago Verificado</h4>
+                            <p class="text-gray-500 text-[10px] uppercase tracking-wider mt-0.5">Pasarela segura</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 2 -->
+                    <div class="flex items-center gap-4 mb-6 relative z-10" id="step-2">
+                        <div class="step-icon w-7 h-7 rounded-full bg-base-300 border border-base-400 flex items-center justify-center flex-shrink-0 text-gray-500">
+                            <i class="ph-bold ph-arrows-clockwise text-sm"></i>
+                        </div>
+                        <div class="flex-grow step-text opacity-50">
+                            <h4 class="text-white font-bold text-sm">Procesando API</h4>
+                            <p class="text-gray-500 text-[10px] uppercase tracking-wider mt-0.5">Conexión directa</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 3 -->
+                    <div class="flex items-center gap-4 relative z-10" id="step-3">
+                        <div class="step-icon w-7 h-7 rounded-full bg-base-300 border border-base-400 flex items-center justify-center flex-shrink-0 text-gray-500">
+                            <i class="ph-fill ph-lightning text-sm"></i>
+                        </div>
+                        <div class="flex-grow step-text opacity-50">
+                            <h4 class="text-white font-bold text-sm">Recarga Entregada</h4>
+                            <p class="text-gray-500 text-[10px] uppercase tracking-wider mt-0.5">Completada al instante</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
     </main>
 
-    <!-- Footer & Legalidad -->
-    <footer class="border-t border-brand-border bg-brand-void/80 backdrop-blur-md relative z-10 mt-20 py-10">
-        <div class="max-w-7xl mx-auto px-5 text-center flex flex-col items-center">
-            <h3 class="font-heading font-black text-xl text-white tracking-wider mb-4 flex items-center gap-2">
-                <i class="ph-fill ph-planet text-brand-neonCyan"></i> ODDYSEUM
-            </h3>
-            <p class="text-xs text-zinc-500 max-w-md mx-auto mb-6">Oddyseum Network no está afiliado a Mojang AB ni Microsoft. Todos los pagos son donaciones para mantener la infraestructura.</p>
-            <div class="flex gap-6 text-sm font-medium text-zinc-400">
-                <a href="#" id="btn-terminos" class="hover:text-brand-neonCyan transition-colors">Términos de Servicio</a>
-                <a href="#" id="btn-privacidad" class="hover:text-brand-neonCyan transition-colors">Política de Privacidad</a>
+    <!-- Footer -->
+    <footer class="bg-base-200 pt-12 pb-8 px-6 border-t border-base-300 mt-auto rounded-t-[40px]">
+        <div class="max-w-[1200px] mx-auto flex flex-col items-center">
+            <div class="text-3xl font-black italic tracking-tighter mb-4">
+                <span class="text-white">Lyz</span><span class="text-brand-green">Market</span>
             </div>
-            <p class="text-[10px] text-zinc-600 mt-8 uppercase tracking-widest">&copy; 2026 Oddyseum Network. Todos los derechos reservados.</p>
+            <p class="text-gray-400 text-sm max-w-sm mb-8 text-center">
+                Tu arsenal gamer premium. Entregas al instante y el mejor precio garantizado.
+            </p>
         </div>
     </footer>
 
-    <!-- Modales -->
+    <!-- FAB de Soporte -->
+    <button class="fixed bottom-6 right-6 bg-[#0D6EFD] w-14 h-14 rounded-full flex items-center justify-center shadow-[0_10px_25px_rgba(13,110,253,0.5)] hover:scale-110 active:scale-95 transition-all z-50 group">
+        <i class="ph-fill ph-chat-circle-dots text-white text-3xl group-hover:animate-bounce"></i>
+        <span class="absolute top-0 right-0 w-3.5 h-3.5 bg-brand-green rounded-full border-2 border-[#0D6EFD] animate-pulse"></span>
+    </button>
 
-    <!-- Modal Carrito Lateral -->
-    <div id="modal-carrito" class="fixed inset-0 z-[100] hidden justify-end bg-black/60 backdrop-blur-sm transition-all duration-300">
-        <div class="w-full max-w-md bg-brand-void h-full border-l border-brand-border flex flex-col shadow-2xl animate-slide-left">
-            <div class="p-6 border-b border-brand-border flex justify-between items-center bg-brand-surface/50">
-                <h3 class="text-lg font-heading font-black text-white flex items-center gap-2">
-                    <i class="ph-fill ph-shopping-bag text-brand-neonCyan text-xl"></i> Tu Compra
-                </h3>
-                <button id="close-cart" class="text-zinc-500 hover:text-white bg-brand-surface p-2 rounded-lg transition-colors border border-brand-border">
-                    <i class="ph-bold ph-x"></i>
-                </button>
-            </div>
+    <!-- SCRIPTS DE INTERACTIVIDAD -->
+    <script>
+        // 1. Temporizador Vivo (Loot Relámpago)
+        function startCountdown() {
+            let time = (3 * 24 * 3600) + (23 * 60) + 58; // Segundos iniciales
+            const display = document.getElementById('countdown');
             
-            <div id="lista-carrito" class="flex-grow overflow-y-auto p-6 space-y-4 custom-scrollbar">
-                <!-- Items inyectados por JS -->
-            </div>
+            setInterval(() => {
+                time--;
+                const d = Math.floor(time / (24 * 3600));
+                const h = Math.floor((time % (24 * 3600)) / 3600);
+                const m = Math.floor((time % 3600) / 60);
+                const s = Math.floor(time % 60);
+                
+                display.innerText = `${d}D ${h.toString().padStart(2, '0')}H ${m.toString().padStart(2, '0')}M ${s.toString().padStart(2, '0')}S`;
+            }, 1000);
+        }
 
-            <div class="p-6 border-t border-brand-border bg-brand-surface/30">
-                <div class="flex justify-between items-center mb-4">
-                    <span class="text-sm font-medium text-zinc-400">Total a pagar</span>
-                    <span id="cart-total" class="text-2xl font-black text-white">$0.00</span>
-                </div>
-                <div class="mb-4">
-                    <label class="text-[10px] uppercase font-bold text-zinc-500 tracking-widest block mb-2">Tu ID de Jugador / Nickname <span class="text-red-400">*</span></label>
-                    <input type="text" id="player-id" placeholder="Ej: Notch_2026" class="w-full bg-brand-void border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-neonCyan focus:ring-1 focus:ring-brand-neonCyan transition-all placeholder:text-zinc-600">
-                </div>
-                <button id="btn-checkout" class="w-full bg-brand-neonCyan hover:bg-[#00d4df] text-brand-void font-black uppercase tracking-widest text-sm py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(0,242,254,0.3)] hover:shadow-[0_0_30px_rgba(0,242,254,0.5)] flex justify-center items-center gap-2">
-                    <i class="ph-fill ph-whatsapp-logo text-lg"></i> Procesar vía WhatsApp
-                </button>
-            </div>
-        </div>
-    </div>
+        // 2. Animación Cíclica del Panel 24/7
+        function startStepsAnimation() {
+            const steps = [
+                { id: 'step-1', iconColor: 'bg-brand-green/20 border-brand-green text-brand-green shadow-[0_0_10px_rgba(0,242,142,0.4)]', textColor: 'text-brand-green' },
+                { id: 'step-2', iconColor: 'bg-brand-yellow/20 border-brand-yellow text-brand-yellow shadow-[0_0_10px_rgba(255,193,7,0.4)]', iconClass: 'animate-spin', textColor: 'text-brand-yellow' },
+                { id: 'step-3', iconColor: 'bg-brand-cyan/20 border-brand-cyan text-brand-cyan shadow-[0_0_15px_rgba(0,180,216,0.6)]', textColor: 'text-brand-cyan' }
+            ];
 
-    <!-- Toast Notification IP -->
-    <div id="toast-notification" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 translate-y-24 opacity-0 transition-all duration-300 z-50 bg-brand-surface border border-primary-500/50 text-white px-6 py-4 rounded-2xl flex items-center gap-4 shadow-[0_10px_40px_rgba(14,165,233,0.3)] pointer-events-none backdrop-blur-xl">
-        <div class="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center shrink-0">
-            <i class="ph-fill ph-check-circle text-primary-400 text-2xl"></i>
-        </div>
-        <div>
-            <p class="text-sm font-black tracking-wide text-white">¡IP Copiada al portapapeles!</p>
-            <p class="text-xs text-zinc-400 mt-0.5">Te esperamos en play.oddyseum.net</p>
-        </div>
-    </div>
+            let current = 0;
 
-    <!-- Scripts -->
-    <script src="app.js"></script>
+            setInterval(() => {
+                // Resetear todos
+                steps.forEach(step => {
+                    const el = document.getElementById(step.id);
+                    const icon = el.querySelector('.step-icon');
+                    const text = el.querySelector('.step-text');
+                    
+                    icon.className = `step-icon w-7 h-7 rounded-full bg-base-300 border border-base-400 flex items-center justify-center flex-shrink-0 text-gray-500 transition-all duration-500`;
+                    icon.innerHTML = icon.innerHTML.replace('animate-spin', ''); // Remover giro si existe
+                    text.classList.add('opacity-50');
+                    text.querySelector('h4').className = 'text-white font-bold text-sm transition-colors duration-500';
+                });
+
+ // Activar actual
+                const activeEl = document.getElementById(steps[current].id);
+                const activeIcon = activeEl.querySelector('.step-icon');
+                const activeText = activeEl.querySelector('.step-text');
+
+                activeIcon.className = `step-icon w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-500 ${steps[current].iconColor}`;
+                if(steps[current].iconClass) activeIcon.querySelector('i').classList.add(steps[current].iconClass);
+                
+                activeText.classList.remove('opacity-50');
+                activeText.querySelector('h4').className = `${steps[current].textColor} font-bold text-sm transition-colors duration-500`;
+
+                // Avanzar (0 -> 1 -> 2 -> 0...)
+                current = (current + 1) % steps.length;
+            }, 2000); // Cambia de paso cada 2 segundos
+        }
+
+        // 3. Drag to Scroll para PC (Carruseles)
+        function initDragScroll() {
+            const slider = document.getElementById('slider-juegos');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                slider.classList.add('cursor-grabbing');
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+            slider.addEventListener('mouseleave', () => {
+                isDown = false;
+                slider.classList.remove('cursor-grabbing');
+            });
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+                slider.classList.remove('cursor-grabbing');
+            });
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 2; // Velocidad de arrastre
+                slider.scrollLeft = scrollLeft - walk;
+            });
+        }
+
+        // Iniciar todo al cargar
+        document.addEventListener('DOMContentLoaded', () => {
+            startCountdown();
+            startStepsAnimation();
+            initDragScroll();
+        });
+    </script>
 </body>
 </html>

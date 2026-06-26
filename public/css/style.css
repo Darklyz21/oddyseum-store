@@ -1,126 +1,162 @@
-/* ==========================================================================
-   Estilos Globales de Alta Fidelidad - Oddyseum Store (2026)
-   ========================================================================== */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+body {
+  font-family: Inter, sans-serif;
+  background: radial-gradient(circle at top, #0a0a0f, #050507);
 }
 
-/* Patrón de fondo sutil para dar textura técnica */
-.bg-grid-pattern {
-  background-image: 
-      linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-/* Scrollbar Avanzado Global */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #06070C;
-}
-::-webkit-scrollbar-thumb {
-  background: #1C1E2E;
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #00F2FE;
-}
-
-/* Capas Blur de Ambiente Metálico (Refactorizado) */
-.glow-sphere {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  mix-blend-mode: screen;
-}
-.sphere-top {
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+/* NAV */
+.glass-nav {
+  position: fixed;
   width: 100%;
-  max-width: 1200px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(0, 242, 254, 0.08) 0%, rgba(155, 81, 224, 0.03) 50%, transparent 100%);
-  filter: blur(100px);
-}
-.sphere-bottom {
-  bottom: -10%;
-  left: -10%;
-  width: 50vw;
-  height: 50vw;
-  background: radial-gradient(circle, rgba(0, 242, 254, 0.05) 0%, transparent 70%);
-  filter: blur(120px);
+  top: 0;
+  backdrop-filter: blur(14px);
+  background: rgba(15,15,20,0.7);
+  border-bottom: 1px solid #27272a;
+  z-index: 50;
 }
 
-/* Cristal Aero Glassmorphism */
-.aero-glass {
-  background: rgba(6, 7, 12, 0.75);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-}
-.glass-panel {
-  background: rgba(26, 29, 45, 0.4);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+.glass-nav .container {
+  display:flex;
+  justify-content:space-between;
+  padding:16px 24px;
+  align-items:center;
 }
 
-/* Degradados de Texto */
-.text-gradient-primary {
-  background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.logo {
+  display:flex;
+  gap:10px;
+  font-weight:700;
+  font-family:Poppins;
 }
 
-/* Tarjetas Premium de la Tienda */
-.premium-card {
-  background: #121420;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-}
-.premium-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(0, 242, 254, 0.35);
-  box-shadow: 0 22px 40px -15px rgba(0, 242, 254, 0.15),
-              inset 0 0 15px rgba(0, 242, 254, 0.02);
+/* HERO */
+.hero {
+  text-align:center;
+  padding:120px 20px 40px;
 }
 
-/* Micro-scroll interno del carrito lateral */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 10px;
+.hero h1 {
+  font-size:42px;
+  font-weight:700;
 }
 
-/* ==========================================================================
-   Efectos y Animaciones Fluidas (Optimizadas para Rendimiento Móvil)
-   ========================================================================== */
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-  opacity: 0;
+.hero p {
+  color:#a1a1aa;
+  margin-top:10px;
 }
 
-@keyframes slideLeft {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
+/* CONTROLS */
+.controls {
+  display:flex;
+  gap:12px;
+  padding:20px;
+  max-width:1100px;
+  margin:auto;
 }
-.animate-slide-left {
-  animation: slideLeft 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+.controls input,
+.controls select {
+  flex:1;
+  padding:12px;
+  border-radius:12px;
+  background:#111;
+  border:1px solid #2a2a2a;
+  color:white;
+}
+
+/* GRID */
+.container {
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:16px;
+}
+
+/* CARD */
+.card {
+  background:#111;
+  border:1px solid #27272a;
+  border-radius:16px;
+  overflow:hidden;
+  transition:.2s;
+}
+
+.card:hover {
+  transform:translateY(-5px);
+  border-color:#10b981;
+}
+
+.card img {
+  width:100%;
+  height:160px;
+  object-fit:cover;
+}
+
+.card-body {
+  padding:14px;
+}
+
+.price {
+  color:#10b981;
+  font-weight:700;
+}
+
+/* CART */
+.cart-btn {
+  position:relative;
+  background:#111;
+  padding:10px;
+  border-radius:12px;
+  border:1px solid #2a2a2a;
+}
+
+#cart-count {
+  position:absolute;
+  top:-5px;
+  right:-5px;
+  background:#10b981;
+  color:black;
+  width:18px;
+  height:18px;
+  font-size:11px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* DRAWER */
+.cart-drawer {
+  position:fixed;
+  right:0;
+  top:0;
+  height:100%;
+  width:360px;
+  background:#0f0f14;
+  border-left:1px solid #2a2a2a;
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+}
+
+.hidden { display:none; }
+
+.cart-footer {
+  margin-top:auto;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+button {
+  cursor:pointer;
+  border:none;
+  padding:12px;
+  border-radius:12px;
+  background:#10b981;
+  font-weight:600;
 }
