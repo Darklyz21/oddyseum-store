@@ -104,7 +104,7 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col pb-20 lg:pb-0 selection:bg-brand-green selection:text-black">
+<body class="min-h-screen flex flex-col bg-[#06060A] selection:bg-brand-green selection:text-black">
 
     <!-- Top Bar -->
     <div class="bg-base-200 border-b border-base-300 px-4 py-1.5 flex justify-between items-center text-[10px] font-semibold text-gray-400 uppercase tracking-wider">
@@ -187,7 +187,7 @@
             </div>
 
             <!-- Contenedor Drag & Drop JS -->
-            <div class="flex gap-4 overflow-x-auto snap-x hide-scrollbar pb-4 pr-4 drag-scroll" id="slider-juegos">
+            <div class="flex gap-4 overflow-x-auto snap-x hide-scrollbar pb-4 pr-4 drag-scroll">
                 
                 <!-- Card -->
                 <div class="min-w-[140px] w-[140px] bg-base-200 border border-base-300 rounded-[24px] p-2 flex flex-col snap-start hover-lift glow-hover" style="--glow-color: rgba(255,255,255,0.1);">
@@ -221,7 +221,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN: Feature Animado 24/7 -->
+        <!-- SECCIÓN UNIFICADA: Feature Animado 24/7 + Tarjetas (Grid Layout) -->
         <section class="pt-8 px-4 mb-12 reveal">
             <div class="flex justify-center mb-6">
                 <span class="border border-brand-green text-brand-green text-xs font-bold px-4 py-1.5 rounded-full flex items-center gap-2 bg-brand-green/10 shadow-[0_0_15px_rgba(0,242,142,0.15)] animate-pulse">
@@ -229,140 +229,173 @@
                 </span>
             </div>
             
-            <h2 class="text-center text-3xl font-black italic text-white mb-4 uppercase">
+            <h2 class="text-center text-3xl font-black italic text-white mb-8 uppercase">
                 ¿POR QUÉ ELEGIR<br>
                 <span class="text-4xl text-white">LYZ <span class="text-brand-green">MARKET</span> ?</span>
             </h2>
 
-            <div class="bg-base-200 border border-base-300 rounded-[32px] p-6 lg:p-8 mt-8 shadow-xl relative overflow-hidden group hover:border-base-400 transition-colors">
-                <!-- Efecto de luz de fondo -->
-                <div class="absolute -top-20 -right-20 w-48 h-48 bg-brand-purple/10 blur-[50px] rounded-full"></div>
-
-                <div class="bg-brand-purple/10 text-brand-purple w-14 h-14 flex items-center justify-center rounded-[20px] mb-6 border border-brand-purple/20">
-                    <i class="ph-bold ph-clock text-2xl group-hover:rotate-180 transition-transform duration-700"></i>
-                </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
                 
-                <h3 class="text-2xl font-black uppercase italic text-white mb-3">Sistema Automático<br>24/7</h3>
-                <p class="text-gray-400 text-sm mb-8 leading-relaxed">
-                    Tus recargas se procesan en milisegundos. Sin intermediarios, disponible a cualquier hora del día.
-                </p>
+                <!-- Columna Izquierda: Panel 24/7 Automático -->
+                <div class="lg:col-span-5 bg-base-200 border border-base-300 rounded-[32px] p-6 lg:p-8 shadow-xl relative overflow-hidden group hover:border-base-400 transition-colors flex flex-col">
+                    <!-- Efecto de luz de fondo -->
+                    <div class="absolute -top-20 -right-20 w-48 h-48 bg-brand-purple/10 blur-[50px] rounded-full"></div>
 
-                <!-- Animación interactiva de pasos (Controlada por JS) -->
-                <div class="bg-base-100 border border-base-300 rounded-[24px] p-5 relative overflow-hidden">
-                    <div class="absolute left-[33px] top-[36px] bottom-[36px] w-[2px] border-l-2 border-dashed border-base-400 z-0"></div>
-
-                    <!-- Paso 1 -->
-                    <div class="flex items-center gap-4 mb-6 relative z-10" id="step-1">
-                        <div class="step-icon w-7 h-7 rounded-full bg-base-300 border border-base-400 flex items-center justify-center flex-shrink-0 text-gray-500">
-                            <i class="ph-bold ph-check text-sm"></i>
-                        </div>
-                        <div class="flex-grow step-text opacity-50">
-                            <h4 class="text-white font-bold text-sm">Pago Verificado</h4>
-                            <p class="text-gray-500 text-[10px] uppercase tracking-wider mt-0.5">Pasarela segura</p>
-                        </div>
+                    <div class="bg-brand-purple/10 text-brand-purple w-14 h-14 flex items-center justify-center rounded-[20px] mb-6 border border-brand-purple/20">
+                        <i class="ph-bold ph-clock text-2xl group-hover:rotate-180 transition-transform duration-700"></i>
                     </div>
-
-                    <!-- Paso 2 -->
-                    <div class="flex items-center gap-4 mb-6 relative z-10" id="step-2">
-                        <div class="step-icon w-7 h-7 rounded-full bg-base-300 border border-base-400 flex items-center justify-center flex-shrink-0 text-gray-500">
-                            <i class="ph-bold ph-arrows-clockwise text-sm"></i>
-                        </div>
-                        <div class="flex-grow step-text opacity-50">
-                            <h4 class="text-white font-bold text-sm">Procesando API</h4>
-                            <p class="text-gray-500 text-[10px] uppercase tracking-wider mt-0.5">Conexión directa</p>
-                        </div>
-                    </div>
-
-                    <!-- Paso 3 -->
-                    <div class="flex items-center gap-4 relative z-10" id="step-3">
-                        <div class="step-icon w-7 h-7 rounded-full bg-base-300 border border-base-400 flex items-center justify-center flex-shrink-0 text-gray-500">
-                            <i class="ph-fill ph-lightning text-sm"></i>
-                        </div>
-                        <div class="flex-grow step-text opacity-50">
-                            <h4 class="text-white font-bold text-sm">Recarga Entregada</h4>
-                            <p class="text-gray-500 text-[10px] uppercase tracking-wider mt-0.5">Completada al instante</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECCIÓN: Tarjetas Interactivas -->
-        <section class="p-4 mb-10 reveal">
-            <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-4 drag-scroll">
-                
-                <!-- 1. Tarjeta Ruleta Diaria -->
-                <div class="min-w-[88%] md:min-w-[360px] bg-base-200 border border-base-300 rounded-[32px] p-6 flex flex-col snap-center relative overflow-hidden group">
-                    <div class="w-12 h-12 rounded-2xl bg-base-300 border border-base-400 flex items-center justify-center text-brand-green mb-6 shadow-inner">
-                        <i class="ph-bold ph-dice-five text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-black uppercase italic text-white mb-2 tracking-wide">La Ruleta Diaria</h3>
-                    <p class="text-gray-400 text-xs leading-relaxed mb-8">Gira todos los días gratis y obtén créditos, bonos exclusivos de recarga y sorpresas en tu cuenta.</p>
                     
-                    <div class="mt-auto py-4 flex justify-center items-center">
-                        <div class="w-28 h-28 rounded-full border border-brand-green/20 flex items-center justify-center relative animate-[spin_10s_linear_infinite]">
-                            <div class="w-20 h-20 rounded-full border border-brand-green/40 flex items-center justify-center">
-                                <div class="w-14 h-14 rounded-full bg-brand-green text-black flex items-center justify-center shadow-[0_0_20px_rgba(0,242,142,0.6)] cursor-pointer group-hover:scale-110 transition-transform">
-                                    <i class="ph-bold ph-dice-five text-2xl animate-bounce"></i>
-                                </div>
+                    <h3 class="text-2xl font-black uppercase italic text-white mb-3">Sistema Automático<br>24/7</h3>
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">
+                        Tus recargas se procesan en milisegundos. Sin intermediarios, disponible a cualquier hora del día.
+                    </p>
+
+                    <!-- Animación interactiva de pasos (Controlada por JS) -->
+                    <div class="bg-base-100 border border-base-300 rounded-[24px] p-5 relative overflow-hidden mt-auto">
+                        <div class="absolute left-[33px] top-[36px] bottom-[36px] w-[2px] border-l-2 border-dashed border-base-400 z-0"></div>
+
+                        <!-- Paso 1 -->
+                        <div class="flex items-center gap-4 mb-6 relative z-10" id="step-1">
+                            <div class="step-icon w-7 h-7 rounded-full bg-base-300 border border-base-400 flex items-center justify-center flex-shrink-0 text-gray-500">
+                                <i class="ph-bold ph-check text-sm"></i>
+                            </div>
+                            <div class="flex-grow step-text opacity-50">
+                                <h4 class="text-white font-bold text-sm">Pago Verificado</h4>
+                                <p class="text-gray-500 text-[10px] uppercase tracking-wider mt-0.5">Pasarela segura</p>
+                            </div>
+                        </div>
+
+                        <!-- Paso 2 -->
+                        <div class="flex items-center gap-4 mb-6 relative z-10" id="step-2">
+                            <div class="step-icon w-7 h-7 rounded-full bg-base-300 border border-base-400 flex items-center justify-center flex-shrink-0 text-gray-500">
+                                <i class="ph-bold ph-arrows-clockwise text-sm"></i>
+                            </div>
+                            <div class="flex-grow step-text opacity-50">
+                                <h4 class="text-white font-bold text-sm">Procesando API</h4>
+                                <p class="text-gray-500 text-[10px] uppercase tracking-wider mt-0.5">Conexión directa</p>
+                            </div>
+                        </div>
+
+                        <!-- Paso 3 -->
+                        <div class="flex items-center gap-4 relative z-10" id="step-3">
+                            <div class="step-icon w-7 h-7 rounded-full bg-base-300 border border-base-400 flex items-center justify-center flex-shrink-0 text-gray-500">
+                                <i class="ph-fill ph-lightning text-sm"></i>
+                            </div>
+                            <div class="flex-grow step-text opacity-50">
+                                <h4 class="text-white font-bold text-sm">Recarga Entregada</h4>
+                                <p class="text-gray-500 text-[10px] uppercase tracking-wider mt-0.5">Completada al instante</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-   <!-- 2. Tarjeta Cupones -->
-                <div class="min-w-[88%] md:min-w-[360px] bg-base-200 border border-base-300 rounded-[32px] p-6 flex flex-col justify-between snap-center">
-                    <div>
-                        <div class="w-12 h-12 rounded-2xl bg-base-300 border border-base-400 flex items-center justify-center text-brand-green mb-6">
-                            <i class="ph-bold ph-ticket text-2xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-black uppercase italic text-white mb-2 tracking-wide">Cupones y Descuentos</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-6">Disfruta de códigos de promoción semanales y descuentos imperdibles para obtener más por menos.</p>
-                    </div>
-                    
-                    <!-- Simulación de Cupón de muescas -->
-                    <div class="bg-base-100 border border-base-300 rounded-2xl p-4 flex items-center justify-between relative">
-                        <div class="absolute -top-3 left-[62%] w-5 h-5 bg-base-200 rounded-full border border-base-300"></div>
-                        <div class="absolute -bottom-3 left-[62%] w-5 h-5 bg-base-200 rounded-full border border-base-300"></div>
+                <!-- Columna Derecha: Slider Interactivo de Tarjetas -->
+                <div class="lg:col-span-7 flex flex-col w-full overflow-hidden">
+                    <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-6 overscroll-x-contain scroll-smooth w-full h-full drag-scroll">
                         
-                        <div class="pr-3 border-r border-dashed border-base-400">
-                            <span class="text-[9px] font-bold text-brand-green uppercase tracking-widest block">CÓDIGO ACTIVO</span>
-                            <span class="font-mono font-black text-white text-sm tracking-wider">LYZ-PROMO</span>
+                        <!-- 1. Tarjeta Ruleta Realista -->
+                        <div class="min-w-[88%] md:min-w-[360px] bg-base-200 border border-base-300 rounded-[32px] p-6 flex flex-col snap-center relative overflow-hidden group hover:border-brand-green/30 transition-colors">
+                            <div class="w-12 h-12 rounded-2xl bg-base-300 border border-base-400 flex items-center justify-center text-brand-green mb-6 shadow-inner group-hover:scale-110 transition-transform">
+                                <i class="ph-bold ph-dice-five text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-black uppercase italic text-white mb-2 tracking-wide">La Ruleta Diaria</h3>
+                            <p class="text-gray-400 text-xs leading-relaxed mb-8">Gira todos los días gratis y obtén créditos, bonos exclusivos de recarga y sorpresas en tu cuenta.</p>
+                            
+                            <div class="mt-auto py-4 flex justify-center items-center relative">
+                                <!-- Puntero superior de la ruleta -->
+                                <div class="absolute -top-1 z-20 w-0 h-0 border-l-[10px] border-r-[10px] border-t-[15px] border-l-transparent border-r-transparent border-t-white drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]"></div>
+                                
+                                <!-- Rueda giratoria -->
+                                <div class="w-32 h-32 rounded-full border-4 border-base-300 relative overflow-hidden animate-[spin_5s_linear_infinite] shadow-[0_0_20px_rgba(0,242,142,0.2)]">
+                                    <div class="absolute inset-0 bg-[conic-gradient(#00F28E_0deg_90deg,#1A1924_90deg_180deg,#9B51E0_180deg_270deg,#1A1924_270deg_360deg)]"></div>
+                                </div>
+                                
+                                <!-- Botón central fijo -->
+                                <div class="absolute w-12 h-12 bg-base-100 rounded-full border-2 border-brand-green flex items-center justify-center z-10 cursor-pointer hover:scale-110 transition-transform shadow-[0_0_15px_rgba(0,242,142,0.3)]">
+                                    <i class="ph-fill ph-play text-brand-green ml-1 text-lg"></i>
+                                </div>
+                            </div>
                         </div>
-                        <div class="pl-2 text-center">
-                            <span class="text-2xl font-black text-white block leading-none">15%</span>
-                            <span class="text-[9px] font-bold text-gray-500 uppercase">OFF</span>
+
+ <!-- 2. Tarjeta Cupones tipo Boleto -->
+                        <div class="min-w-[88%] md:min-w-[360px] bg-base-200 border border-base-300 rounded-[32px] p-6 flex flex-col justify-between snap-center group hover:border-brand-green/30 transition-colors">
+                            <div>
+                                <div class="w-12 h-12 rounded-2xl bg-base-300 border border-base-400 flex items-center justify-center text-brand-green mb-6 group-hover:scale-110 transition-transform">
+                                    <i class="ph-bold ph-ticket text-2xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-black uppercase italic text-white mb-2 tracking-wide">Cupones y Descuentos</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed mb-6">Disfruta de códigos de promoción semanales y descuentos imperdibles para obtener más por menos.</p>
+                            </div>
+                            
+                            <!-- Diseño tipo Ticket Real -->
+                            <div class="bg-base-100 border-y-2 border-brand-green border-dashed rounded-xl p-4 flex items-center justify-between relative mt-auto shadow-inner overflow-hidden">
+                                <!-- Perforaciones laterales -->
+                                <div class="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-base-200 rounded-full border-r-2 border-brand-green border-dashed"></div>
+                                <div class="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-base-200 rounded-full border-l-2 border-brand-green border-dashed"></div>
+                                
+                                <div class="pl-4 pr-3 border-r border-base-400 border-dashed w-3/5">
+                                    <span class="text-[9px] font-bold text-brand-green uppercase tracking-widest block mb-1">CÓDIGO ACTIVO</span>
+                                    <span class="font-mono font-black text-white text-base tracking-wider flex items-center gap-1.5">
+                                        <i class="ph-bold ph-ticket text-brand-green"></i> LYZ-PROMO
+                                    </span>
+                                </div>
+                                <div class="pr-2 text-center w-2/5">
+                                    <span class="text-2xl font-black text-white block leading-none">15%</span>
+                                    <span class="text-[9px] font-bold text-gray-500 uppercase">OFF</span>
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- 3. Tarjeta Soporte Live (Con Twitch) -->
+                        <div class="min-w-[88%] md:min-w-[360px] bg-base-200 border border-base-300 rounded-[32px] p-6 flex flex-col justify-between snap-center group hover:border-[#9146FF]/30 transition-colors">
+                            <div>
+                                <div class="w-12 h-12 rounded-2xl bg-base-300 border border-base-400 flex items-center justify-center text-[#9146FF] mb-6 group-hover:scale-110 transition-transform">
+                                    <!-- Icono de Twitch -->
+                                    <i class="ph-bold ph-twitch-logo text-2xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-black uppercase italic text-white mb-2 tracking-wide">Chat en Vivo 24/7</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed mb-4">Atención dedicada. Resolvemos tus dudas en tiempo real para que nunca pares de jugar.</p>
+                            </div>
+
+                            <div class="bg-base-100 border border-base-300 rounded-2xl p-3 text-[11px] mt-auto">
+                                <div class="flex items-center gap-2 mb-2 pb-1.5 border-b border-base-300">
+                                    <span class="w-2 h-2 rounded-full bg-brand-green animate-ping"></span>
+                                    <span class="text-white font-bold">Agente Lyz Online</span>
+                                </div>
+                                <div class="bg-base-300 text-gray-300 p-2 rounded-lg rounded-tl-none mb-1.5 w-4/5">¿Mi pedido fue enviado?</div>
+                                <div class="bg-brand-green/15 text-brand-green p-2 rounded-lg rounded-tr-none ml-auto w-4/5 font-medium">¡Al instante! Revisa tu correo ⚡</div>
+                            </div>
+                        </div>
+
+                        <!-- 4. Tarjeta Sin Fronteras (Global) -->
+                        <div class="min-w-[88%] md:min-w-[360px] bg-base-200 border border-base-300 rounded-[32px] p-6 flex flex-col snap-center group hover-lift transition-colors hover:border-brand-yellow/30">
+                            <div class="w-12 h-12 rounded-2xl bg-base-300 border border-base-400 flex items-center justify-center text-brand-yellow mb-6 group-hover:scale-110 transition-transform">
+                                <i class="ph-bold ph-airplane-tilt text-2xl group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-500"></i>
+                            </div>
+                            <h3 class="text-2xl font-black uppercase italic text-white mb-2 tracking-wide">De Cantaura para el Mundo</h3>
+                            <p class="text-gray-400 text-xs leading-relaxed mb-6">No importa dónde juegues. Rompemos fronteras para que tu arsenal llegue sin demoras a cualquier región del planeta.</p>
+                            
+                            <div class="mt-auto bg-base-100 border border-base-300 rounded-2xl p-4 overflow-hidden relative shadow-inner">
+                                <div class="absolute -right-4 -bottom-6 opacity-20 text-brand-yellow">
+                                    <i class="ph-fill ph-globe-hemisphere-west text-7xl animate-[spin_20s_linear_infinite]"></i>
+                                </div>
+                                <div class="relative z-10 flex flex-wrap gap-2">
+                                    <span class="bg-base-300 border border-base-400 text-white text-[10px] font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5"><img src="https://flagcdn.com/w20/ve.png" class="w-4 rounded-sm"> Venezuela</span>
+                                    <span class="bg-base-300 border border-base-400 text-white text-[10px] font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5"><img src="https://flagcdn.com/w20/co.png" class="w-4 rounded-sm"> Colombia</span>
+                                    <span class="bg-base-300 border border-base-400 text-white text-[10px] font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5"><i class="ph-bold ph-globe text-brand-yellow"></i> + Global</span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-
-                <!-- 3. Tarjeta Soporte Live -->
-                <div class="min-w-[88%] md:min-w-[360px] bg-base-200 border border-base-300 rounded-[32px] p-6 flex flex-col justify-between snap-center">
-                    <div>
-                        <div class="w-12 h-12 rounded-2xl bg-base-300 border border-base-400 flex items-center justify-center text-brand-green mb-6">
-                            <i class="ph-bold ph-chat-centered-dots text-2xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-black uppercase italic text-white mb-2 tracking-wide">Chat en Vivo 24/7</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Atención dedicada. Resolvemos tus dudas en tiempo real para que nunca pares de jugar.</p>
-                    </div>
-
-                    <div class="bg-base-100 border border-base-300 rounded-2xl p-3 text-[11px]">
-                        <div class="flex items-center gap-2 mb-2 pb-1.5 border-b border-base-300">
-                            <span class="w-2 h-2 rounded-full bg-brand-green animate-ping"></span>
-                            <span class="text-white font-bold">Agente Lyz Online</span>
-                        </div>
-                        <div class="bg-base-300 text-gray-300 p-2 rounded-lg rounded-tl-none mb-1.5 w-4/5">¿Mi pedido fue enviado?</div>
-                        <div class="bg-brand-green/15 text-brand-green p-2 rounded-lg rounded-tr-none ml-auto w-4/5 font-medium">¡Al instante! Revisa tu correo ⚡</div>
-                    </div>
-                </div>
-
             </div>
         </section>
 
     </main>
 
-    <!-- ================= NUEVO MEGA FOOTER ================= -->
-    <footer class="bg-base-200 pt-14 pb-28 px-6 border-t border-base-300 mt-auto rounded-t-[44px] text-xs relative z-10 reveal">
+    <!-- ================= MEGA FOOTER ================= -->
+    <footer class="bg-base-200 pt-14 pb-8 px-6 border-t border-base-300 mt-auto rounded-t-[44px] text-xs relative z-10 reveal">
         <div class="max-w-[1200px] mx-auto">
             
             <!-- Marca y redes -->
@@ -432,116 +465,12 @@
     </footer>
 
     <!-- FAB de Soporte -->
-    <button class="fixed bottom-6 right-6 bg-[#0D6EFD] w-14 h-14 rounded-full flex items-center justify-center shadow-[0_10px_25px_rgba(13,110,253,0.5)] hover:scale-110 active:scale-95 transition-all z-50 group">
+    <button class="fixed bottom-6 right-6 bg-[#0D6EFD] w-14 h-14 rounded-full flex items-center justify-center shadow-[0_10px_25px_rgba(13,110,253,0.5)] hover:scale-110 active:scale-95 transition-all z-50 group" aria-label="Soporte en línea">
         <i class="ph-fill ph-chat-circle-dots text-white text-3xl group-hover:animate-bounce"></i>
         <span class="absolute top-0 right-0 w-3.5 h-3.5 bg-brand-green rounded-full border-2 border-[#0D6EFD] animate-pulse"></span>
     </button>
 
-    <!-- SCRIPTS DE INTERACTIVIDAD -->
-    <script>
-        // 1. Temporizador Vivo (Loot Relámpago)
-        function startCountdown() {
-            let time = (3 * 24 * 3600) + (23 * 60) + 58; // Segundos iniciales
-            const display = document.getElementById('countdown');
-            
-            setInterval(() => {
-                time--;
-                const d = Math.floor(time / (24 * 3600));
-                const h = Math.floor((time % (24 * 3600)) / 3600);
-                const m = Math.floor((time % 3600) / 60);
-                const s = Math.floor(time % 60);
-                
-                display.innerText = `${d}D ${h.toString().padStart(2, '0')}H ${m.toString().padStart(2, '0')}M ${s.toString().padStart(2, '0')}S`;
-            }, 1000);
-        }
-
-        // 2. Animación Cíclica del Panel 24/7
-        function startStepsAnimation() {
-            const steps = [
-                { id: 'step-1', iconColor: 'bg-brand-green/20 border-brand-green text-brand-green shadow-[0_0_10px_rgba(0,242,142,0.4)]', textColor: 'text-brand-green' },
-                { id: 'step-2', iconColor: 'bg-brand-yellow/20 border-brand-yellow text-brand-yellow shadow-[0_0_10px_rgba(255,193,7,0.4)]', iconClass: 'animate-spin', textColor: 'text-brand-yellow' },
-                { id: 'step-3', iconColor: 'bg-brand-cyan/20 border-brand-cyan text-brand-cyan shadow-[0_0_15px_rgba(0,180,216,0.6)]', textColor: 'text-brand-cyan' }
-            ];
-
-            let current = 0;
-
-            setInterval(() => {
-                // Resetear todos
-                steps.forEach(step => {
-                    const el = document.getElementById(step.id);
-                    const icon = el.querySelector('.step-icon');
-                    const text = el.querySelector('.step-text');
-                    
-                    icon.className = `step-icon w-7 h-7 rounded-full bg-base-300 border border-base-400 flex items-center justify-center flex-shrink-0 text-gray-500 transition-all duration-500`;
-                    icon.innerHTML = icon.innerHTML.replace('animate-spin', ''); // Remover giro si existe
-                    text.classList.add('opacity-50');
-                    text.querySelector('h4').className = 'text-white font-bold text-sm transition-colors duration-500';
-                });
-
-                // Activar actual
-                const activeEl = document.getElementById(steps[current].id);
-                const activeIcon = activeEl.querySelector('.step-icon');
-                const activeText = activeEl.querySelector('.step-text');
-
-                activeIcon.className = `step-icon w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-500 ${steps[current].iconColor}`;
-                if(steps[current].iconClass) activeIcon.querySelector('i').classList.add(steps[current].iconClass);
-                
-                activeText.classList.remove('opacity-50');
-                activeText.querySelector('h4').className = `${steps[current].textColor} font-bold text-sm transition-colors duration-500`;
-
-                // Avanzar (0 -> 1 -> 2 -> 0...)
-                current = (current + 1) % steps.length;
-            }, 2000); // Cambia de paso cada 2 segundos
-        }
-
-        // 3. Drag to Scroll para PC (Carruseles)
-        function initDragScroll() {
-            const slider = document.getElementById('slider-juegos');
-            let isDown = false;
-            let startX;
-            let scrollLeft;
-
-            slider.addEventListener('mousedown', (e) => {
-                isDown = true;
-                slider.classList.add('cursor-grabbing');
-                startX = e.pageX - slider.offsetLeft;
-                scrollLeft = slider.scrollLeft;
-            });
-            slider.addEventListener('mouseleave', () => {
-                isDown = false;
-                slider.classList.remove('cursor-grabbing');
-            });
-            slider.addEventListener('mouseup', () => {
-                isDown = false;
-                slider.classList.remove('cursor-grabbing');
-            });
-            slider.addEventListener('mousemove', (e) => {
-                if (!isDown) return;
-                e.preventDefault();
-                const x = e.pageX - slider.offsetLeft;
-                const walk = (x - startX) * 2; // Velocidad de arrastre
-                slider.scrollLeft = scrollLeft - walk;
-            });
-        }
-
-        // Iniciar todo al cargar
-        document.addEventListener('DOMContentLoaded', () => {
-            startCountdown();
-            startStepsAnimation();
-            initDragScroll();
-
-            // 4. Motor de aparición progresiva en Scroll
-            const observerOptions = { threshold: 0.15 };
-            const scrollObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.reveal').forEach(el => scrollObserver.observe(el));
-        });
-    </script>
+    <!-- ENLACE AL ARCHIVO JS EXTERNO -->
+    <script src="scripts.js"></script>
 </body>
 </html>
