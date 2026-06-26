@@ -91,6 +91,17 @@
         .step-icon, .step-text {
             transition: all 0.5s ease;
         }
+
+        /* Efecto de revelado suave tipo App nativa */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col pb-20 lg:pb-0 selection:bg-brand-green selection:text-black">
@@ -122,7 +133,7 @@
     <main class="max-w-[480px] mx-auto w-full lg:max-w-[1200px] flex-grow">
 
         <!-- Banner Promocional -->
-        <div class="p-4 mt-2">
+        <div class="p-4 mt-2 reveal">
             <div class="w-full aspect-[21/9] lg:aspect-[21/6] bg-base-200 rounded-[28px] overflow-hidden relative border border-base-300 cursor-pointer group hover-lift" style="--glow-color: rgba(0,242,142,0.2);">
                 <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop" alt="Banner" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
                 <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent flex flex-col justify-center p-6 lg:p-10">
@@ -133,7 +144,7 @@
         </div>
 
         <!-- SECCIÓN: Loot Relámpago Dinámico -->
-        <section class="p-4 mt-2">
+        <section class="p-4 mt-2 reveal">
             <div class="flex items-center gap-2 mb-4">
                 <div class="w-1.5 h-6 bg-brand-purple rounded-full shadow-[0_0_10px_rgba(155,81,224,0.5)]"></div>
                 <h2 class="text-xl font-bold text-white">Loot <span class="text-brand-purple">Relámpago <i class="ph-fill ph-lightning animate-pulse"></i></span></h2>
@@ -169,7 +180,7 @@
         </section>
 
         <!-- SECCIÓN: Juegos de Recarga -->
-        <section class="pt-6 pl-4 mb-4">
+        <section class="pt-6 pl-4 mb-4 reveal">
             <div class="flex items-center gap-2 mb-4 pr-4">
                 <div class="w-1.5 h-6 bg-brand-yellow rounded-full shadow-[0_0_10px_rgba(255,193,7,0.5)]"></div>
                 <h2 class="text-xl font-bold text-white">Juegos de <span class="text-brand-yellow">Recarga</span></h2>
@@ -211,7 +222,7 @@
         </section>
 
         <!-- SECCIÓN: Feature Animado 24/7 -->
-        <section class="pt-8 px-4 mb-12">
+        <section class="pt-8 px-4 mb-12 reveal">
             <div class="flex justify-center mb-6">
                 <span class="border border-brand-green text-brand-green text-xs font-bold px-4 py-1.5 rounded-full flex items-center gap-2 bg-brand-green/10 shadow-[0_0_15px_rgba(0,242,142,0.15)] animate-pulse">
                     <i class="ph-fill ph-shield-check text-base"></i> GARANTÍA PREMIUM
@@ -276,17 +287,147 @@
             </div>
         </section>
 
+        <!-- SECCIÓN: Tarjetas Interactivas -->
+        <section class="p-4 mb-10 reveal">
+            <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-4 drag-scroll">
+                
+                <!-- 1. Tarjeta Ruleta Diaria -->
+                <div class="min-w-[88%] md:min-w-[360px] bg-base-200 border border-base-300 rounded-[32px] p-6 flex flex-col snap-center relative overflow-hidden group">
+                    <div class="w-12 h-12 rounded-2xl bg-base-300 border border-base-400 flex items-center justify-center text-brand-green mb-6 shadow-inner">
+                        <i class="ph-bold ph-dice-five text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-black uppercase italic text-white mb-2 tracking-wide">La Ruleta Diaria</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed mb-8">Gira todos los días gratis y obtén créditos, bonos exclusivos de recarga y sorpresas en tu cuenta.</p>
+                    
+                    <div class="mt-auto py-4 flex justify-center items-center">
+                        <div class="w-28 h-28 rounded-full border border-brand-green/20 flex items-center justify-center relative animate-[spin_10s_linear_infinite]">
+                            <div class="w-20 h-20 rounded-full border border-brand-green/40 flex items-center justify-center">
+                                <div class="w-14 h-14 rounded-full bg-brand-green text-black flex items-center justify-center shadow-[0_0_20px_rgba(0,242,142,0.6)] cursor-pointer group-hover:scale-110 transition-transform">
+                                    <i class="ph-bold ph-dice-five text-2xl animate-bounce"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+   <!-- 2. Tarjeta Cupones -->
+                <div class="min-w-[88%] md:min-w-[360px] bg-base-200 border border-base-300 rounded-[32px] p-6 flex flex-col justify-between snap-center">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-base-300 border border-base-400 flex items-center justify-center text-brand-green mb-6">
+                            <i class="ph-bold ph-ticket text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-black uppercase italic text-white mb-2 tracking-wide">Cupones y Descuentos</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6">Disfruta de códigos de promoción semanales y descuentos imperdibles para obtener más por menos.</p>
+                    </div>
+                    
+                    <!-- Simulación de Cupón de muescas -->
+                    <div class="bg-base-100 border border-base-300 rounded-2xl p-4 flex items-center justify-between relative">
+                        <div class="absolute -top-3 left-[62%] w-5 h-5 bg-base-200 rounded-full border border-base-300"></div>
+                        <div class="absolute -bottom-3 left-[62%] w-5 h-5 bg-base-200 rounded-full border border-base-300"></div>
+                        
+                        <div class="pr-3 border-r border-dashed border-base-400">
+                            <span class="text-[9px] font-bold text-brand-green uppercase tracking-widest block">CÓDIGO ACTIVO</span>
+                            <span class="font-mono font-black text-white text-sm tracking-wider">LYZ-PROMO</span>
+                        </div>
+                        <div class="pl-2 text-center">
+                            <span class="text-2xl font-black text-white block leading-none">15%</span>
+                            <span class="text-[9px] font-bold text-gray-500 uppercase">OFF</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Tarjeta Soporte Live -->
+                <div class="min-w-[88%] md:min-w-[360px] bg-base-200 border border-base-300 rounded-[32px] p-6 flex flex-col justify-between snap-center">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-base-300 border border-base-400 flex items-center justify-center text-brand-green mb-6">
+                            <i class="ph-bold ph-chat-centered-dots text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-black uppercase italic text-white mb-2 tracking-wide">Chat en Vivo 24/7</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Atención dedicada. Resolvemos tus dudas en tiempo real para que nunca pares de jugar.</p>
+                    </div>
+
+                    <div class="bg-base-100 border border-base-300 rounded-2xl p-3 text-[11px]">
+                        <div class="flex items-center gap-2 mb-2 pb-1.5 border-b border-base-300">
+                            <span class="w-2 h-2 rounded-full bg-brand-green animate-ping"></span>
+                            <span class="text-white font-bold">Agente Lyz Online</span>
+                        </div>
+                        <div class="bg-base-300 text-gray-300 p-2 rounded-lg rounded-tl-none mb-1.5 w-4/5">¿Mi pedido fue enviado?</div>
+                        <div class="bg-brand-green/15 text-brand-green p-2 rounded-lg rounded-tr-none ml-auto w-4/5 font-medium">¡Al instante! Revisa tu correo ⚡</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-base-200 pt-12 pb-8 px-6 border-t border-base-300 mt-auto rounded-t-[40px]">
-        <div class="max-w-[1200px] mx-auto flex flex-col items-center">
-            <div class="text-3xl font-black italic tracking-tighter mb-4">
-                <span class="text-white">Lyz</span><span class="text-brand-green">Market</span>
+    <!-- ================= NUEVO MEGA FOOTER ================= -->
+    <footer class="bg-base-200 pt-14 pb-28 px-6 border-t border-base-300 mt-auto rounded-t-[44px] text-xs relative z-10 reveal">
+        <div class="max-w-[1200px] mx-auto">
+            
+            <!-- Marca y redes -->
+            <div class="flex flex-col items-center border-b border-base-300/60 pb-8 mb-8">
+                <div class="text-3xl font-black italic tracking-tighter mb-3">
+                    <span class="text-white">Lyz</span><span class="text-brand-green">Market</span>
+                </div>
+                <p class="text-gray-400 text-center max-w-sm mb-6 leading-relaxed">
+                    Tu arsenal gamer premium. Entregas automáticas al instante y el mejor precio garantizado de la región.
+                </p>
+                <div class="flex gap-3">
+                    <a href="#" class="w-10 h-10 rounded-xl bg-base-300 border border-base-400 flex items-center justify-center text-gray-300 hover:text-brand-green hover:border-brand-green transition-all"><i class="ph-bold ph-instagram-logo text-lg"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-xl bg-base-300 border border-base-400 flex items-center justify-center text-gray-300 hover:text-brand-green hover:border-brand-green transition-all"><i class="ph-bold ph-facebook-logo text-lg"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-xl bg-base-300 border border-base-400 flex items-center justify-center text-gray-300 hover:text-brand-green hover:border-brand-green transition-all"><i class="ph-bold ph-whatsapp-logo text-lg"></i></a>
+                </div>
             </div>
-            <p class="text-gray-400 text-sm max-w-sm mb-8 text-center">
-                Tu arsenal gamer premium. Entregas al instante y el mejor precio garantizado.
-            </p>
+
+            <!-- 3 Columnas de Links -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left border-b border-base-300/60 pb-10 mb-8">
+                <div>
+                    <h4 class="text-white font-black tracking-widest uppercase mb-3 text-[11px]">AYUDA</h4>
+                    <ul class="space-y-2 text-gray-400 font-medium">
+                        <li><a href="#" class="hover:text-brand-green transition-colors">¿Cómo comprar?</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition-colors">Hablar con un humano</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition-colors">Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-black tracking-widest uppercase mb-3 text-[11px]">CATEGORÍAS</h4>
+                    <ul class="space-y-2 text-gray-400 font-medium">
+                        <li><a href="#" class="hover:text-brand-green transition-colors">Catálogo Completo</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition-colors">Juegos de Recarga</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition-colors">Gift Cards</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-black tracking-widest uppercase mb-3 text-[11px]">LEGAL Y SOPORTE</h4>
+                    <ul class="space-y-2 text-gray-400 font-medium">
+                        <li><a href="#" class="hover:text-brand-green transition-colors">Términos y Condiciones</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition-colors">Política de Privacidad</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition-colors">Garantía de Reembolso</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Sellos de seguridad y pasarelas -->
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-3 bg-base-100 border border-base-300 py-2.5 px-4 rounded-2xl w-full lg:w-auto justify-center">
+                    <i class="ph-fill ph-shield-check text-brand-green text-3xl"></i>
+                    <div class="text-left">
+                        <span class="text-white font-black text-[11px] tracking-wider block">COMPRA 100% SEGURA</span>
+                        <span class="text-gray-500 text-[9px] block uppercase">Encriptación SSL Grado Bancario</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto justify-center">
+                    <span class="text-gray-500 font-bold uppercase tracking-wider text-[10px]">Aceptamos:</span>
+                    <div class="flex gap-1.5 flex-wrap justify-center">
+                        <span class="bg-base-300 border border-base-400 text-brand-yellow font-bold px-2.5 py-1 rounded-lg flex items-center gap-1 text-[10px]"><i class="ph-fill ph-wallet"></i> BINANCE</span>
+                        <span class="bg-base-300 border border-base-400 text-brand-cyan font-bold px-2.5 py-1 rounded-lg flex items-center gap-1 text-[10px]"><i class="ph-fill ph-paypal-logo"></i> PAYPAL</span>
+                        <span class="bg-base-300 border border-base-400 text-brand-green font-bold px-2.5 py-1 rounded-lg flex items-center gap-1 text-[10px]"><i class="ph-fill ph-device-mobile"></i> PAGO MÓVIL</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </footer>
 
@@ -337,7 +478,7 @@
                     text.querySelector('h4').className = 'text-white font-bold text-sm transition-colors duration-500';
                 });
 
- // Activar actual
+                // Activar actual
                 const activeEl = document.getElementById(steps[current].id);
                 const activeIcon = activeEl.querySelector('.step-icon');
                 const activeText = activeEl.querySelector('.step-text');
@@ -388,6 +529,18 @@
             startCountdown();
             startStepsAnimation();
             initDragScroll();
+
+            // 4. Motor de aparición progresiva en Scroll
+            const observerOptions = { threshold: 0.15 };
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(el => scrollObserver.observe(el));
         });
     </script>
 </body>
