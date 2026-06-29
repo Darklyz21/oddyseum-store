@@ -116,6 +116,59 @@ function initScrollReveal() {
     document.querySelectorAll('.reveal').forEach(el => scrollObserver.observe(el));
 }
 
+// 5. Motor de Paginación para el Slider (Las pelotitas)
+function initSliderDots() {
+    const slider = document.getElementById('features-slider');
+    const dotsContainer = document.getElementById('slider-dots');
+    
+    if(!slider || !dotsContainer) return;
+
+    const cards = slider.querySelectorAll('.slider-card');
+    
+    // Crear los puntitos dinámicamente según la cantidad de tarjetas
+    dotsContainer.innerHTML = '';
+    cards.forEach((card, index) => {
+        const dot = document.createElement('div');
+        // El primer punto arranca activo
+        const isActive = index === 0;
+        dot.className = `dot-indicator transition-all duration-300 rounded-full cursor-pointer ${isActive ? 'w-6 h-2 bg-brand-green shadow-[0_0_10px_rgba(0,242,142,0.5)]' : 'w-2 h-2 bg-base-400'}`;
+        dot.dataset.index = index;
+        
+        // Al tocar un puntito, el slider se mueve a esa tarjeta
+        dot.addEventListener('click', () => {
+            const cardLeft = card.offsetLeft;
+            slider.scrollTo({ left: cardLeft - slider.offsetLeft - 16, behavior: 'smooth' });
+        });
+        
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = dotsContainer.querySelectorAll('.dot-indicator');
+
+    // Usar IntersectionObserver para detectar qué tarjeta se está viendo
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const activeIndex = entry.target.dataset.index;
+                
+                // Actualizar estilos de los puntitos
+                dots.forEach(d => {
+                    d.className = 'dot-indicator transition-all duration-300 rounded-full cursor-pointer w-2 h-2 bg-base-400 hover:bg-base-300';
+                });
+                dots[activeIndex].className = 'dot-indicator transition-all duration-300 rounded-full cursor-pointer w-6 h-2 bg-brand-green shadow-[0_0_10px_rgba(0,242,142,0.5)]';
+            }
+        });
+    }, {
+        root: slider,
+        threshold: 0.6 // La tarjeta debe verse al menos al 60% para activar el puntito
+    });
+
+    cards.forEach((card, index) => {
+        card.dataset.index = index;
+        observer.observe(card);
+    });
+}
+
 // Iniciar todos los módulos cuando el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', () => {
     startCountdown();
